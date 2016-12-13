@@ -7,6 +7,8 @@ html {
 	@include type-global;
 	background-color: $background-color;
 	color: $text-color;
+	color: $yellow;
+	text-shadow: 3px 2px 3px purple;
 
 	// Enable kerning and ligatures in all browsers.
 	// - http://blog.typekit.com/2014/02/05/kerning-on-the-web/
@@ -41,11 +43,6 @@ figure {
 	margin-bottom: rem($space);
 }
 
-// The lobotomized owl selector
-// * + * {
-// 	margin-top: rem($space);
-// }
-
 // Headers
 h1 {
 	@include type-1;
@@ -66,7 +63,7 @@ h4 {
 // Links
 a,
 a:visited {
-	color: $blue;
+	color: $white;
 }
 
 // Responsive media

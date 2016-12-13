@@ -1,6 +1,19 @@
-// This is just an example of how to structure a module.
-export const $ = selector => {
-	return document.querySelectorAll(selector);
-};
+import Vue from 'vue/dist/vue'
 
-export default $;
+let app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+		oskar: 'it works',
+		todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
+  }
+})
+
+window.freedomtv = app
+
+export default app
+

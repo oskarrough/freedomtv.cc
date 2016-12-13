@@ -3121,10 +3121,6 @@ etag@^1.7.0, etag@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.7.0.tgz#03d30b5f67dd6e632d2945d30d6652731a34d5d8"
 
-ev-emitter@~1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/ev-emitter/-/ev-emitter-1.0.3.tgz#ee5ef74b6ed28d911b32ddcbfc97867f580937bc"
-
 event-emitter@~0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/event-emitter/-/event-emitter-0.3.4.tgz#8d63ddfb4cfe1fae3b32ca265c4c720222080bb5"
@@ -4512,12 +4508,6 @@ imagemin@^5.0.0:
     promise.pipe "^3.0.0"
     replace-ext "0.0.1"
 
-imagesloaded@^4.1.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/imagesloaded/-/imagesloaded-4.1.1.tgz#53b5b66615360850a5a264b1293e7f4d06d3bd51"
-  dependencies:
-    ev-emitter "~1.0.0"
-
 img-stats@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/img-stats/-/img-stats-0.5.2.tgz#c203496c42f2d9eb2e5ab8232fa756bab32c9e2b"
@@ -5332,6 +5322,10 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+
 localtunnel@1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/localtunnel/-/localtunnel-1.8.1.tgz#d51b2bb7a7066afb05b57fc9db844015098f2e17"
@@ -5783,10 +5777,6 @@ lru-cache@^4.0.1:
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
-
-magnific-popup@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/magnific-popup/-/magnific-popup-1.1.0.tgz#3e7362c5bd18f6785fe99e59d013e20af33d3049"
 
 make-error-cause@^1.1.1:
   version "1.2.2"
@@ -8000,6 +7990,10 @@ signal-exit@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.1.tgz#5a4c884992b63a7acd9badb7894c3ee9cfccad81"
 
+sister@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sister/-/sister-3.0.0.tgz#88eb57047cb283da1e070b1a7cae8212f3bcb2db"
+
 slash@1.0.0, slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -9108,6 +9102,10 @@ vm-browserify@~0.0.1:
   dependencies:
     indexof "0.0.1"
 
+vue@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.1.5.tgz#d2568d3e5093cf1486eef44cf37177e3f51d568d"
+
 walker@~1.0.5:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
@@ -9442,3 +9440,11 @@ yauzl@2.4.1, yauzl@^2.2.1:
 yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+
+youtube-player@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-4.0.2.tgz#e8fdf696c958b7565c829051b5b7fa7bfed08380"
+  dependencies:
+    load-script "^1.0.0"
+    lodash "^4.3.0"
+    sister "^3.0.0"
