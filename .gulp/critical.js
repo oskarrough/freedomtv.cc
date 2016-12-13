@@ -1,0 +1,13 @@
+const gulp = require('gulp');
+const critical = require('critical').stream;
+
+// Generate & inline critical-path CSS
+gulp.task('critical', () => {
+	return gulp.src('dist/index.html')
+		.pipe(critical({
+			base: 'dist/',
+			inline: true,
+			minify: true
+		}))
+		.pipe(gulp.dest('dist'));
+});

@@ -1,0 +1,18 @@
+// Strip the unit of a length
+@function strip-unit($number) {
+	@if type-of($number) == "number" and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+// Convert value to REM
+@function rem($target, $context: $global-font-size) {
+	@return (strip-unit($target) / strip-unit($context)) * 1rem;
+}
+
+// Convert value to EM
+@function em($target, $context: $global-font-size) {
+	@return (strip-unit($target) / strip-unit($context)) * 1em;
+}

@@ -1,0 +1,9 @@
+$space: 24px;
+$border-radius: 2px;
+
+// Susy configuration
+$susy: (
+	global-box-sizing: border-box,
+	columns: 12,
+	gutters: (1/4)
+);
