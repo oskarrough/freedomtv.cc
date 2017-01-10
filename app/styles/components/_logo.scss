@@ -3,13 +3,19 @@
  */
 
 .Logo {
-	a {
-		display: block;
-		color: $text-color;
-		text-decoration: none;
+	top: 0rem;
+	right: 1rem;
+	font-size: 3rem;
+	font-weight: normal;
+	line-height: 1;
+	text-align: right;
+	color: $yellow;
+
+	small {
+		font-size: 60%;
 	}
 
-	img {
-		width: 100%;
+	strong {
+		display: block;
 	}
 }

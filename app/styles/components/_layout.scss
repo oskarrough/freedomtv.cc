@@ -12,34 +12,24 @@
 	z-index: 1;
 }
 
-.Logo {
-	top: 1rem;
-	right: 1rem;
-	font-size: 3rem;
-	font-weight: normal;
-	line-height: 1.2;
-	color: $yellow;
-}
-
 .Player {
-	// display: none;
+	// do not use display none as it breaks the iframe javascript
 	visibility: hidden;
 	position: absolute;
-	// right: 0;
-	// top: 1rem;
 	z-index: 1;
 	max-width: 200px;
 }
 
 .RemoteControl {
 	position: absolute;
-	left: 0;
+	left: 1rem;
 	top: 1rem;
 	z-index: 1;
 	max-width: 8rem;
 	background: gray;
 	border: 2px solid;
-	box-shadow: 1px 2px 3px rgba(black, 0.5);
+	box-shadow: 2px 3px 3px rgba(black, 0.5);
+	text-align: center;
 
 	menu {
 		margin: 0rem;
@@ -52,7 +42,7 @@
 	button {
 		box-sizing: content-box;
 		padding: 1rem 0.5rem;
-		width: 1.2rem;
+		// width: 1.2rem;
 	}
 
 	.prev,
@@ -62,6 +52,9 @@
 
 	.play-pause {
 		// margin: 0 0.5rem;
+		img {
+			max-width: 2rem;
+		}
 	}
 
 	.pause {
@@ -75,6 +68,7 @@
 	}
 }
 
+// Switch icon depending on play-state
 .RemoteControl.is-playing {
 	.play {
 		display: none;
@@ -85,7 +79,7 @@
 }
 
 .RemoteControl-list {
-	margin: 0;
+	margin: 0 0 1rem;
 	padding-left: 0;
 	display: flex;
 	flex-flow: row wrap;
@@ -101,11 +95,6 @@
 	li.is-active {
 		background-color: rgba(black, 0.5);
 	}
-}
-
-.Logo strong {
-	margin-right: 1rem;
-	font-weight: bold;
 }
 
 .TrackList {

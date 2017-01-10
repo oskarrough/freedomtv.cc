@@ -16,39 +16,20 @@ const onPlay = () => {
 		button.classList.add('is-active')
 	})
 
-	widget.getCurrentSound(sound => {
-		console.log(sound.title)
-	})
-
-	remoteControl.classList.add('is-playing')
+	// widget.getCurrentSound(sound => {
+	// 	console.log(sound.title)
+	// })
+	// remoteControl.classList.add('is-playing')
 }
 
 const onFinish = () => {
 	console.log('finished')
-	remoteControl.classList.remove('is-playing')
-}
-
-const onClick = (event) => {
-	let $el = $(event.currentTarget)
-	let index = $el.index()
-
-	// $el.addClass('is-active')
-
-	// Skip track.
-	widget.skip(index)
+	// remoteControl.classList.remove('is-playing')
 }
 
 widget.bind(SC.Widget.Events.PLAY, onPlay)
 widget.bind(SC.Widget.Events.FINISH, onFinish)
 
-$('li', remoteControlList).on('click', onClick)
-$('.play', remoteControl).on('click', () => {
-	widget.play()
-})
-$('.pause', remoteControl).on('click', () => {
-	remoteControl.classList.remove('is-playing')
-	widget.pause()
-})
 
 export default widget
 
