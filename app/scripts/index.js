@@ -1,39 +1,65 @@
 /* eslint no-unused-vars:0 */
 
-// import lazysizes from 'lazysizes';
-// import rough from './rough';
+import $ from 'jquery';
+import ytPlayer from './youtube';
+import scPlayer from './soundcloud';
 
-import YouTubePlayer from 'youtube-player'
+const videos = [
+	// 'eCIJZ_6Qcck',
+	// 'RHOy9XObpZU',
+	// '5vuuT5W9BWo',
+	// 'J9eCj2XUFSg',
+	// 'h0pWXCdRU5A',
+	// 'DHTyG8x5UPo'
+	'eCIJZ_6Qcck',
+	'RHOy9XObpZU',
+	'q8ZHi6whe58',
+	'qchPLaiKocI',
+	'aJbD00z68JI',
+	'TwyqfyR_qXg',
+	'X84muuaySVQ',
+	'bF_a6qMeWP8',
+	'HKaIMdX6K7g',
+	'MCt0DLsn3lM',
+	'BbIPRG2P16Q',
+	'Yi1m_UVpAHw'
+]
 
-const stateNames = {
-	'-1': 'unstarted',
-	0: 'ended',
-	1: 'playing',
-	2: 'paused',
-	3: 'buffering',
-	5: 'video cued'
-};
+const videoTheRhythm = 'DHTyG8x5UPo'
 
-const player = YouTubePlayer('TeaserVideo', {
-	videoId: 'eCIJZ_6Qcck',
-	playerVars: {
-		modestbranding: 1,
-		playsinline: 1,
-		rel: 0,
-		showinfo: 0,
-		// color: 'white',
-		controls: 0
+const getRandomVideo = () => {
+	return videos[Math.floor(Math.random() * videos.length)]
+}
+
+ytPlayer.mute();
+// ytPlayer.loadVideoById(videos[0])
+
+const remoteControl = document.querySelector('.RemoteControl')
+const onClick = (event) => {
+	let $el = $(event.currentTarget)
+	let index = $el.index()
+	if (index === 4) {
+		ytPlayer.loadVideoById(videoTheRhythm)
+	} else {
+		ytPlayer.loadVideoById(getRandomVideo())
 	}
+	// Skip track.
+	scPlayer.skip(index)
+}
+
+$('.play').on('click', () => {
+	scPlayer.toggle()
+	remoteControl.classList.add('is-playing')
 })
 
-player.playVideo()
-
-player.on('stateChange', function (event) {
-	// console.log('State: ' + stateNames[event.data] + ' (' + event.data + ').')
-
-	if (stateNames[event.data] === 'ended') {
-		// Loop the video.
-		player.seekTo(0)
-	}
+$('.pause').on('click', () => {
+	scPlayer.toggle()
+	remoteControl.classList.remove('is-playing')
+	// ytPlayer.pauseVideo()
 })
 
+$('li', '.RemoteControl-list').on('click', onClick)
+
+setTimeout(() => {
+	$('.RemoteControl-list li').eq(0).trigger('click')
+}, 1000)

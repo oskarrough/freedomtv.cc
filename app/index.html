@@ -1,9 +1,71 @@
 {{#extend "layout"}}
 {{#content "main"}}
 
-<h1 class="Overlay Logo"><strong>Freedom TV</strong></h1>
+<h1 class="Overlay Logo">
+	<small>Wayne Snow</small>
+	<strong>Freedom TV</strong>
+</h1>
 
 <div id="TeaserVideo" class="Stretch"></div>
+
+<div class="Player">
+	<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/282899748&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
+</div>
+
+<div class="RemoteControl">
+	<menu>
+		<button class="prev">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 320 320" enable-background="new 0 0 320 320" xml:space="preserve">
+				<polygon points="79,320 79,178.2 320,320 320,0 79,141.8 79,0 0,0 0,320 "></polygon>
+			</svg>
+		</button>
+		<div class="play-pause">
+			<button class="play">
+				<img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" alt="unmute" title="Unmute/speaker icon">
+				<!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 320" enable-background="new 0 0 256 320" xml:space="preserve"> -->
+				<!-- 	<polygon points="0,0 0,320 256,160 "></polygon> -->
+				<!-- </svg> -->
+			</button>
+			<button class="pause">
+				<img src="http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg" alt="Mute_Icon.svg" title="Mute icon">
+				<!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 320" enable-background="new 0 0 256 320" xml:space="preserve"> -->
+				<!-- 	<rect width="79" height="320"></rect> -->
+				<!-- 	<rect x="177" width="79" height="320"></rect> -->
+				<!-- </svg> -->
+			</button>
+		</div>
+		<button class="next">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 320 320" enable-background="new 0 0 320 320" xml:space="preserve">
+				<polygon points="241,0 241,141.8 0,0 0,320 241,178.2 241,320 320,320 320,0 "></polygon>
+			</svg>
+		</button>
+		<button class="tracklist">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="14.6 12.2 33 30" enable-background="new 14.6 12.2 33 30" xml:space="preserve">
+				<g>
+					<rect x="14.6" y="12.2" fill="#FFFFFF" width="6" height="6"></rect>
+					<rect x="14.6" y="24.2" fill="#FFFFFF" width="6" height="6"></rect>
+					<rect x="14.6" y="36.2" fill="#FFFFFF" width="6" height="6"></rect>
+					<rect x="26.6" y="12.2" fill="#FFFFFF" width="21" height="6"></rect>
+					<rect x="26.6" y="24.2" fill="#FFFFFF" width="21" height="6"></rect>
+					<rect x="26.6" y="36.2" fill="#FFFFFF" width="21" height="6"></rect>
+				</g>
+			</svg>
+		</button>
+	</menu>
+	<ul class="RemoteControl-list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<p><a href="#" target="_blank">ORDER VINYL/DIGITAL</a></p>
+</div>
 
 <marquee class="Overlay TrackList" scrollamount="20">
 	{{> track-list}}

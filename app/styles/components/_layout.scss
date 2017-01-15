@@ -1,12 +1,3 @@
-// .App {
-// 	// margin-top: 2rem;
-// 	// margin-left: 1rem;
-// 	// margin-right: 1rem;
-// 	// @media (min-width: bp(m)) {
-// 	// 	margin: 2rem;
-// 	// }
-// }
-
 .Overlay {
 	position: fixed;
 	z-index: 2;
@@ -21,19 +12,89 @@
 	z-index: 1;
 }
 
-.Logo {
-	top: 1rem;
-	right: 1rem;
-	font-size: 3rem;
-	font-weight: normal;
-	line-height: 1.2;
-	color: $yellow;
+.Player {
+	// do not use display none as it breaks the iframe javascript
+	visibility: hidden;
+	position: absolute;
+	z-index: 1;
+	max-width: 200px;
 }
 
-.Logo strong {
-	font-weight: bold;
-	// display: block;
-	margin-right: 1rem;
+.RemoteControl {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	z-index: 1;
+	max-width: 8rem;
+	background: gray;
+	border: 2px solid;
+	box-shadow: 2px 3px 3px rgba(black, 0.5);
+	text-align: center;
+
+	menu {
+		margin: 0rem;
+		padding: 0rem;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+	}
+
+	button {
+		box-sizing: content-box;
+		padding: 1rem 0.5rem;
+		// width: 1.2rem;
+	}
+
+	.prev,
+	.next {
+		display: none;
+	}
+
+	.play-pause {
+		// margin: 0 0.5rem;
+		img {
+			max-width: 2rem;
+		}
+	}
+
+	.pause {
+		display: none;
+	}
+
+	.tracklist {
+		display: none;
+		margin-left: 0.5rem;
+		width: 11px;
+	}
+}
+
+// Switch icon depending on play-state
+.RemoteControl.is-playing {
+	.play {
+		display: none;
+	}
+	.pause {
+		display: initial;
+	}
+}
+
+.RemoteControl-list {
+	margin: 0 0 1rem;
+	padding-left: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+
+	li {
+		cursor: pointer;
+		padding: 0.8rem 1rem;
+		border-radius: 50%;
+		line-height: 1;
+	}
+
+	li.is-active {
+		background-color: rgba(black, 0.5);
+	}
 }
 
 .TrackList {
@@ -45,9 +106,9 @@
 	ol {
 		list-style: none;
 	}
+
 	li {
 		display: inline;
-		// margin-right: 2rem;
 	}
 }
 
