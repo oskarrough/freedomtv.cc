@@ -4,27 +4,13 @@
 
 $global-font-size: 16px;
 $global-line-height: 1.4;
-$global-font-family: Fabrik, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-
-// Use this syntax for including web fonts cross browser
+$global-font-family: "vcr_osd_monoregular", monospace, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 
 @font-face {
-	font-family: "Fabrik";
-	src: url('../fonts/Fabrik-Regular.eot');
-	src: url('../fonts/Fabrik-Regular.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/Fabrik-Regular.woff2') format('woff2'),
-		 url('../fonts/Fabrik-Regular.woff') format('woff');
+	font-family: 'vcr_osd_monoregular';
+	src: url('../fonts/vcr_osd_mono_1.001-webfont.woff2') format('woff2'),
+	url('../fonts/vcr_osd_mono_1.001-webfont.woff') format('woff');
 	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Fabrik";
-	src: url('../fonts/Fabrik-Bold.eot');
-	src: url('../fonts/Fabrik-Bold.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/Fabrik-Bold.woff2') format('woff2'),
-		 url('../fonts/Fabrik-Bold.woff') format('woff');
-	font-weight: bold;
 	font-style: normal;
 }
 

@@ -11,9 +11,10 @@ const onPlay = () => {
 
 	// Mark current button as active.
 	widget.getCurrentSoundIndex(index => {
-		let button = document.querySelectorAll('.RemoteControl-list li')[index]
-		$(remoteControlList).find('li').not(button).removeClass('is-active')
-		button.classList.add('is-active')
+		let li = $('.js-changeTrack').eq(index).parent('li')
+
+		$(remoteControlList).find('li').not(li).removeClass('is-active')
+		li.addClass('is-active')
 	})
 
 	// widget.getCurrentSound(sound => {
@@ -29,7 +30,6 @@ const onFinish = () => {
 
 widget.bind(SC.Widget.Events.PLAY, onPlay)
 widget.bind(SC.Widget.Events.FINISH, onFinish)
-
 
 export default widget
 

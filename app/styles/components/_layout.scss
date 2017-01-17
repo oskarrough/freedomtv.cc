@@ -12,6 +12,12 @@
 	z-index: 1;
 }
 
+#TeaserVideo {
+	// Don't let people interact with the video
+	// because it's a TV. Not a video.
+	pointer-events: none;
+}
+
 .Player {
 	// do not use display none as it breaks the iframe javascript
 	visibility: hidden;
@@ -25,47 +31,12 @@
 	left: 1rem;
 	top: 1rem;
 	z-index: 1;
-	max-width: 8rem;
-	background: gray;
-	border: 2px solid;
-	box-shadow: 2px 3px 3px rgba(black, 0.5);
+	width: 250px;
+	height: 440px;
+	background-image: url("../images/remote/WayneSnow_Remote_0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
 	text-align: center;
-
-	menu {
-		margin: 0rem;
-		padding: 0rem;
-		display: flex;
-		flex-flow: row nowrap;
-		justify-content: center;
-	}
-
-	button {
-		box-sizing: content-box;
-		padding: 1rem 0.5rem;
-		// width: 1.2rem;
-	}
-
-	.prev,
-	.next {
-		display: none;
-	}
-
-	.play-pause {
-		// margin: 0 0.5rem;
-		img {
-			max-width: 2rem;
-		}
-	}
-
-	.pause {
-		display: none;
-	}
-
-	.tracklist {
-		display: none;
-		margin-left: 0.5rem;
-		width: 11px;
-	}
 }
 
 // Switch icon depending on play-state
@@ -79,21 +50,80 @@
 }
 
 .RemoteControl-list {
-	margin: 0 0 1rem;
+	margin: 0;
 	padding-left: 0;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	position: absolute;
+	top: 8.8rem;
+	top: 1.9rem;
+	left: 2rem;
+	right: 2rem;
 
 	li {
-		cursor: pointer;
-		padding: 0.8rem 1rem;
-		border-radius: 50%;
+		flex: 33%;
+		padding: 0.7rem 1rem;
 		line-height: 1;
+		margin-bottom: 0.7rem;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		// color: transparent;
+
+		&::before {
+			display: inline-block;
+			content: "";
+			width: 1.7rem;
+			height: 1.3rem;
+			background-color: #511e55;
+			position: absolute;
+			z-index: -1;
+			left: 36%;
+			left: calc(50% - 0.8rem);
+		}
+
+		button {
+			width: 100%;
+			min-height: 1.3rem;
+		}
 	}
 
 	li.is-active {
-		background-color: rgba(black, 0.5);
+		color: white;
+
+		&::before {
+			// background-color: lighten(#511e55, 40%);
+			background-color: #b56d42;
+			filter: blur(2px);
+		}
+	}
+
+	li:nth-child(1),
+	li:nth-child(2),
+	li:nth-child(3),
+	li:nth-child(4),
+	li:nth-child(5),
+	li:nth-child(6) {
+		color: transparent;
+		text-shadow: none;
+
+		button {
+			text-indent: -999px;
+		}
+
+		&::before {
+			display: none;
+		}
+	}
+
+	li:last-child {
+		flex: 66%;
+		overflow: hidden;
+		text-indent: -999px;
+
+		&::before {
+			display: none;
+		}
 	}
 }
 
@@ -110,13 +140,5 @@
 	li {
 		display: inline;
 	}
-}
-
-.Credits {
-	top: 1rem;
-	right: 1rem;
-	text-decoration: none;
-	opacity: 0.7;
-	display: none;
 }
 

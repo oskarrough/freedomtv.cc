@@ -3,19 +3,9 @@
  */
 
 .Logo {
-	top: 0rem;
+	top: 1rem;
 	right: 1rem;
-	font-size: 3rem;
-	font-weight: normal;
-	line-height: 1;
-	text-align: right;
-	color: $yellow;
-
-	small {
-		font-size: 60%;
-	}
-
-	strong {
-		display: block;
-	}
+	min-width: 120px;
+	max-width: 20%;
+	user-select: none;
 }

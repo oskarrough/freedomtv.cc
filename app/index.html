@@ -2,8 +2,7 @@
 {{#content "main"}}
 
 <h1 class="Overlay Logo">
-	<small>Wayne Snow</small>
-	<strong>Freedom TV</strong>
+	<img src="images/freedom-tv-logo.png" alt="Wayne Snow - Freedom TV">
 </h1>
 
 <div id="TeaserVideo" class="Stretch"></div>
@@ -13,65 +12,48 @@
 </div>
 
 <div class="RemoteControl">
-	<menu>
-		<button class="prev">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 320 320" enable-background="new 0 0 320 320" xml:space="preserve">
-				<polygon points="79,320 79,178.2 320,320 320,0 79,141.8 79,0 0,0 0,320 "></polygon>
-			</svg>
-		</button>
-		<div class="play-pause">
-			<button class="play">
-				<img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" alt="unmute" title="Unmute/speaker icon">
-				<!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 320" enable-background="new 0 0 256 320" xml:space="preserve"> -->
-				<!-- 	<polygon points="0,0 0,320 256,160 "></polygon> -->
-				<!-- </svg> -->
-			</button>
-			<button class="pause">
-				<img src="http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg" alt="Mute_Icon.svg" title="Mute icon">
-				<!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 320" enable-background="new 0 0 256 320" xml:space="preserve"> -->
-				<!-- 	<rect width="79" height="320"></rect> -->
-				<!-- 	<rect x="177" width="79" height="320"></rect> -->
-				<!-- </svg> -->
-			</button>
-		</div>
-		<button class="next">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 320 320" enable-background="new 0 0 320 320" xml:space="preserve">
-				<polygon points="241,0 241,141.8 0,0 0,320 241,178.2 241,320 320,320 320,0 "></polygon>
-			</svg>
-		</button>
-		<button class="tracklist">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="14.6 12.2 33 30" enable-background="new 14.6 12.2 33 30" xml:space="preserve">
-				<g>
-					<rect x="14.6" y="12.2" fill="#FFFFFF" width="6" height="6"></rect>
-					<rect x="14.6" y="24.2" fill="#FFFFFF" width="6" height="6"></rect>
-					<rect x="14.6" y="36.2" fill="#FFFFFF" width="6" height="6"></rect>
-					<rect x="26.6" y="12.2" fill="#FFFFFF" width="21" height="6"></rect>
-					<rect x="26.6" y="24.2" fill="#FFFFFF" width="21" height="6"></rect>
-					<rect x="26.6" y="36.2" fill="#FFFFFF" width="21" height="6"></rect>
-				</g>
-			</svg>
-		</button>
-	</menu>
+	<!-- <menu> -->
+	<!-- 	<button class="prev"> -->
+	<!-- 		Previous -->
+	<!-- 	</button> -->
+	<!-- 	<div class="play-pause"> -->
+	<!-- 		<button class="play"> -->
+	<!-- 			Play -->
+	<!-- 		</button> -->
+	<!-- 		<button class="pause"> -->
+	<!-- 			Pause -->
+	<!-- 		</button> -->
+	<!-- 	</div> -->
+	<!-- 	<button class="next"> -->
+	<!-- 		Next -->
+	<!-- 	</button> -->
+	<!-- </menu> -->
 	<ul class="RemoteControl-list">
-		<li>1</li>
-		<li>2</li>
-		<li>3</li>
-		<li>4</li>
-		<li>5</li>
-		<li>6</li>
-		<li>7</li>
-		<li>8</li>
-		<li>9</li>
-		<li>10</li>
+		<li><button class="js-volUp">Up</button></li>
+		<li><button class="js-powerButton">Off</button></li>
+		<li><button class="js-prev">Prev</button></li>
+		<li><button class="js-volDown">Down</button></li>
+		<li><button class="js-toggleSound">Mute</button></li>
+		<li><button class="js-next">Next</button></li>
+		<li><button class="js-changeTrack">1</button></li>
+		<li><button class="js-changeTrack">2</button></li>
+		<li><button class="js-changeTrack">3</button></li>
+		<li><button class="js-changeTrack">4</button></li>
+		<li><button class="js-changeTrack">5</button></li>
+		<li><button class="js-changeTrack">6</button></li>
+		<li><button class="js-changeTrack">7</button></li>
+		<li><button class="js-changeTrack">8</button></li>
+		<li><button class="js-changeTrack">9</button></li>
+		<li><button class="js-changeTrack">10</button></li>
+		<li class="RemoteControl-orderBtn">
+			<a class="" href="http://tartelet-records.com/releases/freedom-tv" target="_blank">ORDER</a>
+		</li>
 	</ul>
-	<p><a href="#" target="_blank">ORDER VINYL/DIGITAL</a></p>
 </div>
 
 <marquee class="Overlay TrackList" scrollamount="20">
 	{{> track-list}}
 </marquee>
-
-<a class="Overlay Credits" href="http://tartelet-records.com">Tartelet Records</a>
 
 {{/content}}
 {{/extend}}
