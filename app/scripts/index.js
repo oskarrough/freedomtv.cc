@@ -3,51 +3,9 @@
 import $ from 'jquery';
 import ytPlayer from './youtube';
 import scPlayer from './soundcloud';
-
-// MODEL
-
-const videos = [
-	// 'eCIJZ_6Qcck',
-	// 'RHOy9XObpZU',
-	// '5vuuT5W9BWo',
-	// 'J9eCj2XUFSg',
-	// 'h0pWXCdRU5A',
-	// 'DHTyG8x5UPo'
-	'eCIJZ_6Qcck',
-	'RHOy9XObpZU',
-	'q8ZHi6whe58',
-	'qchPLaiKocI',
-	'aJbD00z68JI',
-	'TwyqfyR_qXg',
-	'X84muuaySVQ',
-	'bF_a6qMeWP8',
-	'HKaIMdX6K7g',
-	'MCt0DLsn3lM',
-	'BbIPRG2P16Q',
-	'Yi1m_UVpAHw',
-	'2VW1M5L2oV0',
-	'ozoTzkCeO-A'
-]
-
-const videoTheRhythm = 'DHTyG8x5UPo'
-
-const findRandomVideo = () => {
-	return videos[Math.floor(Math.random() * videos.length)]
-}
+import store from './store';
 
 // ACTIONS
-
-const play = function () {
-	// Only toggles volume.
-	scPlayer.toggle()
-	remoteControl.classList.add('is-playing')
-}
-
-const pause = function () {
-	// Only toggles volume.
-	scPlayer.toggle()
-	remoteControl.classList.remove('is-playing')
-}
 
 const changeTrack = function (event) {
 	let $el = $(event.currentTarget)
@@ -57,9 +15,10 @@ const changeTrack = function (event) {
 
 	// Change video
 	if (index === 4) {
-		ytPlayer.loadVideoById(videoTheRhythm)
+		// the rhythm video
+		ytPlayer.loadVideoById('DHTyG8x5UPo')
 	} else {
-		ytPlayer.loadVideoById(findRandomVideo())
+		ytPlayer.loadVideoById(store.findRandomVideo())
 	}
 
 	// Change track.
@@ -91,6 +50,7 @@ $('.js-next').on('click', () => {
 	scPlayer.next()
 })
 $('.js-changeTrack').on('click', changeTrack)
+
 
 // START
 
