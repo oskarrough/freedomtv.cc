@@ -52,11 +52,8 @@
   "dependencies": {
     "breakpoint-sass": "^2.7.0",
     "jquery": "^3.0.0",
-    "lazysizes": "^2.0.4",
     "suitcss-base": "^2.0.0",
-    "susy": "^2.2.6",
-    "vue": "^2.1.5",
-    "youtube-player": "^4.0.2"
+    "youtube-player": "^4.1.0"
   },
   "browserify": {
     "browser": {
