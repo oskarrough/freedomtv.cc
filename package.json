@@ -10,7 +10,8 @@
     "start": "gulp serve",
     "build": "gulp build",
     "test": "npm run lint; npm run build; ava",
-    "lint": "xo; stylelint --syntax scss app/styles/**/*.scss"
+    "lint": "xo; stylelint --syntax scss app/styles/**/*.scss",
+    "deploy": "surge dist https://secret-wayne.surge.sh"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
