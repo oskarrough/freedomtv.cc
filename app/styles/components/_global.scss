@@ -14,10 +14,6 @@ html {
 	text-rendering: optimizeLegibility;
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
-
-	@include breakpoint($l) {
-		font-size: $global-font-size + 2;
-	}
 }
 
 html,

@@ -22,7 +22,9 @@ const videos = [
 	'HKaIMdX6K7g',
 	'MCt0DLsn3lM',
 	'BbIPRG2P16Q',
-	'Yi1m_UVpAHw'
+	'Yi1m_UVpAHw',
+	'2VW1M5L2oV0',
+	'ozoTzkCeO-A'
 ]
 
 const videoTheRhythm = 'DHTyG8x5UPo'
@@ -35,31 +37,59 @@ ytPlayer.mute();
 // ytPlayer.loadVideoById(videos[0])
 
 const remoteControl = document.querySelector('.RemoteControl')
-const onClick = (event) => {
+
+const changeTrack = function (event) {
 	let $el = $(event.currentTarget)
-	let index = $el.index()
+	let index = Number($el.text().trim() - 1)
+	console.log(index)
+	// Change video
 	if (index === 4) {
 		ytPlayer.loadVideoById(videoTheRhythm)
 	} else {
 		ytPlayer.loadVideoById(getRandomVideo())
 	}
-	// Skip track.
+	// Change track.
 	scPlayer.skip(index)
 }
 
-$('.play').on('click', () => {
+$('.js-volUp').on('click', () => {
+	scPlayer.getVolume(vol => {
+		scPlayer.setVolume(vol + 0.1)
+	})
+})
+$('.js-powerButton').on('click', () => {
 	scPlayer.toggle()
-	remoteControl.classList.add('is-playing')
+})
+$('.js-prev').on('click', () => {
+	scPlayer.prev()
+})
+$('.js-volDown').on('click', () => {
+	scPlayer.getVolume(vol => {
+		scPlayer.setVolume(vol - 0.1)
+	})
+})
+$('.js-toggleSound').on('click', () => {
+	scPlayer.toggle()
 })
 
-$('.pause').on('click', () => {
+$('.js-next').on('click', () => {
+	scPlayer.next()
+})
+
+$('.js-changeTrack').on('click', changeTrack)
+
+const play = function () {
+	scPlayer.toggle()
+	remoteControl.classList.add('is-playing')
+}
+
+const pause = function () {
 	scPlayer.toggle()
 	remoteControl.classList.remove('is-playing')
 	// ytPlayer.pauseVideo()
-})
-
-$('li', '.RemoteControl-list').on('click', onClick)
+}
 
 setTimeout(() => {
-	$('.RemoteControl-list li').eq(0).trigger('click')
-}, 1000)
+	console.log('autoplaying first track')
+	$('.js-changeTrack').eq(0).trigger('click')
+}, 800)
