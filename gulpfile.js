@@ -6,17 +6,17 @@
 	`gulp` it'll run the task defined in `gulp/default.js`
 */
 
-const gulp = require('gulp');
-const requireDir = require('require-dir');
+const gulp = require('gulp')
+const requireDir = require('require-dir')
 
 // Require all tasks in gulp
-requireDir('./.gulp');
+requireDir('./.gulp')
 
-gulp.task('default', ['build']);
-gulp.task('templates', ['handlebars']);
-gulp.task('styles', ['sass']);
-gulp.task('scripts', ['browserify']);
-gulp.task('s', ['serve']);
+gulp.task('default', ['build'])
+gulp.task('templates', ['handlebars'])
+gulp.task('styles', ['sass'])
+gulp.task('scripts', ['browserify'])
+gulp.task('s', ['serve'])
 
-module.exports = gulp.tasks;
+module.exports = gulp.tasks
 

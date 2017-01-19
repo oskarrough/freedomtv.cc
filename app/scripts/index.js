@@ -1,17 +1,17 @@
 /* eslint no-unused-vars:0 */
 
-import $ from 'jquery';
-import ytPlayer from './youtube';
-import scPlayer from './soundcloud';
-import store from './store';
+import $ from 'jquery'
+import store from './store'
+import ytPlayer from './youtube'
+import scPlayer from './soundcloud'
 
 // ACTIONS
 
 const changeTrack = function (event) {
-	let $el = $(event.currentTarget)
+	const $el = $(event.currentTarget)
 
 	// Use the string number text to decide which track to play.
-	let index = Number($el.text().trim() - 1)
+	const index = Number($el.text().trim() - 1)
 
 	// Change video
 	if (index === 4) {
@@ -50,7 +50,6 @@ $('.js-next').on('click', () => {
 	scPlayer.next()
 })
 $('.js-changeTrack').on('click', changeTrack)
-
 
 // START
 

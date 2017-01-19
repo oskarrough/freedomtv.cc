@@ -2,6 +2,7 @@ import YouTubePlayer from 'youtube-player'
 
 // Create our player.
 const player = YouTubePlayer('TeaserVideo', {
+	// videoId: 'e6XhT3VZfJI',
 	playerVars: {
 		modestbranding: 1,
 		playsinline: 1,
@@ -20,13 +21,15 @@ const stateNames = {
 	5: 'video cued'
 }
 
-player.on('stateChange', function (event) {
-	// console.log('State: ' + stateNames[event.data] + ' (' + event.data + ').')
-
+player.on('stateChange', (event) => {
+	console.log('State: ' + stateNames[event.data] + ' (' + event.data + ').')
 	if (stateNames[event.data] === 'ended') {
 		// Loop the video.
 		player.seekTo(0)
 	}
 })
 
-export default player;
+// Mute the video.
+player.mute()
+
+export default player
