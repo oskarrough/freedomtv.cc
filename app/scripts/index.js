@@ -1,3 +1,4 @@
+/* global SC */
 /* eslint no-unused-vars:0 */
 
 import $ from 'jquery'
@@ -25,11 +26,48 @@ const changeTrack = function (event) {
 	scPlayer.skip(index)
 }
 
+let volumeTimer;
+const showVolumeChange = vol => {
+	const $el = $('.VolumeStatus')
+	const $img = $el.find('img')
+
+	const show = () => {
+		$el.show()
+	}
+	const hide = () => {
+		$el.hide()
+	}
+
+	// Clamp between 0 and 1
+	if (vol > 1) {
+		vol = 1
+	}
+	if (vol < 0) {
+		vol = 0
+	}
+
+	// Map to a 0-20 scale so it fits our images
+	let roundedVolume = (Math.round(vol * 20) / 20) * 20
+
+	// Show it, change image, hide again.
+	show()
+	$img[0].src = `images/volume/freedomTV_Site_Volume_${roundedVolume}.png`
+	window.clearTimeout(volumeTimer)
+	volumeTimer = setTimeout(hide, 5000)
+}
+
 // EVENT HANDLERS
 
 $('.js-volUp').on('click', () => {
 	scPlayer.getVolume(vol => {
-		scPlayer.setVolume(vol + 0.1)
+		scPlayer.setVolume(vol + 0.05)
+		showVolumeChange(vol + 0.05)
+	})
+})
+$('.js-volDown').on('click', () => {
+	scPlayer.getVolume(vol => {
+		scPlayer.setVolume(vol - 0.05)
+		showVolumeChange(vol - 0.05)
 	})
 })
 $('.js-powerButton').on('click', () => {
