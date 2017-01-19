@@ -26,6 +26,19 @@ const changeTrack = function (event) {
 	scPlayer.skip(index)
 }
 
+const toggleVideo = () => {
+	ytPlayer.getPlayerState().then(state => {
+		// console.log(state);
+		if (state === 1) {
+			// console.log('pausing');
+			ytPlayer.pauseVideo()
+		} else {
+			// console.log('playing');
+			ytPlayer.playVideo()
+		}
+	})
+}
+
 let volumeTimer;
 const showVolumeChange = vol => {
 	const $el = $('.VolumeStatus')
@@ -71,28 +84,46 @@ $('.js-volDown').on('click', () => {
 	})
 })
 $('.js-powerButton').on('click', () => {
-	scPlayer.toggle()
+	// toggleVideo()
+	ytPlayer.getPlayerState().then(state => {
+		if (state === 1) {
+			ytPlayer.loadVideoById('6hKIHF5cULg').then(() => {
+				scPlayer.toggle()
+				// because the video is 1 sec long
+				// setTimeout(scPlayer.toggle, 1000)
+			})
+		} else {
+			ytPlayer.loadVideoById(store.findRandomVideo()).then(() => {
+				scPlayer.play()
+			})
+		}
+	})
 })
 $('.js-prev').on('click', () => {
 	scPlayer.prev()
-})
-$('.js-volDown').on('click', () => {
-	scPlayer.getVolume(vol => {
-		scPlayer.setVolume(vol - 0.1)
-	})
+	ytPlayer.loadVideoById(store.findRandomVideo())
 })
 $('.js-toggleSound').on('click', () => {
-	scPlayer.toggle()
+	// Can not use scPlayer.toggle() because it resets when a new track plays
+	scPlayer.getVolume(vol => {
+		// console.log(vol);
+		if (vol < 1) {
+			scPlayer.setVolume(100)
+		} else {
+			scPlayer.setVolume(0)
+		}
+	})
 })
 $('.js-next').on('click', () => {
 	scPlayer.next()
+	ytPlayer.loadVideoById(store.findRandomVideo())
 })
 $('.js-changeTrack').on('click', changeTrack)
 
 // START
 
 const start = function () {
-	console.log('autoplaying first track')
+	// console.log('autoplaying first track')
 	$('.js-changeTrack').eq(0).trigger('click')
 }
 

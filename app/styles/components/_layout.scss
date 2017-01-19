@@ -95,7 +95,7 @@
 			content: "";
 			width: 1.7rem;
 			height: 1.3rem;
-			background-color: #511e55;
+			background-color: #2e3438;
 			position: absolute;
 			z-index: -1;
 			left: 36%;
@@ -145,4 +145,9 @@
 			display: none;
 		}
 	}
+}
+
+.VolumeStatus {
+	display: none;
+	bottom: 5rem;
 }

@@ -1,8 +1,8 @@
 import YoutubePlayer from 'youtube-player'
 
 // Create our player.
-const player = YoutubePlayer('YoutubePlayer', {
-	// videoId: 'e6XhT3VZfJI',
+const player = new YoutubePlayer('YoutubePlayer', {
+	// videoId: '6hKIHF5cULg',
 	playerVars: {
 		modestbranding: 1,
 		playsinline: 1,
@@ -21,13 +21,17 @@ const stateNames = {
 	5: 'video cued'
 }
 
-player.on('stateChange', (event) => {
+const loader = document.querySelector('.YoutubePlayer-loader')
+const hideLoader = () => loader.classList.add('is-hidden')
+const showLoader = () => loader.classList.remove('is-hidden')
+
+player.on('stateChange', event => {
 	const state = stateNames[event.data]
-	// console.log('State: ' + state + ' (' + event.data + ').')
-	if (state === 'ended') {
-		// Loop the video.
-		player.seekTo(0)
-	}
+	console.log('State: ' + state + ' (' + event.data + ').')
+	// if (state === 'ended') {
+	// 	// Loop the video.
+	// 	player.seekTo(0)
+	// }
 	if (state === 'buffering') {
 		showLoader()
 	}
@@ -35,10 +39,6 @@ player.on('stateChange', (event) => {
 		hideLoader()
 	}
 })
-
-const loader = document.querySelector('.YoutubePlayer-loader')
-const hideLoader = () => loader.classList.add('is-hidden')
-const showLoader = () => loader.classList.remove('is-hidden')
 
 // Mute the video.
 player.mute()
