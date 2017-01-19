@@ -1,7 +1,7 @@
-import YouTubePlayer from 'youtube-player'
+import YoutubePlayer from 'youtube-player'
 
 // Create our player.
-const player = YouTubePlayer('TeaserVideo', {
+const player = YoutubePlayer('YoutubePlayer', {
 	// videoId: 'e6XhT3VZfJI',
 	playerVars: {
 		modestbranding: 1,
@@ -22,8 +22,9 @@ const stateNames = {
 }
 
 player.on('stateChange', (event) => {
-	console.log('State: ' + stateNames[event.data] + ' (' + event.data + ').')
-	if (stateNames[event.data] === 'ended') {
+	const state = stateNames[event.data]
+	// console.log('State: ' + state + ' (' + event.data + ').')
+	if (state === 'ended') {
 		// Loop the video.
 		player.seekTo(0)
 	}

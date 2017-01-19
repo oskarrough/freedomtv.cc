@@ -1,9 +1,9 @@
-.Overlay {
+.u-overlay {
 	position: fixed;
 	z-index: 2;
 }
 
-.Stretch {
+.u-stretch {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -12,18 +12,34 @@
 	z-index: 1;
 }
 
-#TeaserVideo {
+.YoutubePlayer {
 	// Don't let people interact with the video
 	// because it's a TV. Not a video.
 	pointer-events: none;
 }
 
-.Player {
+
+.SoundCloudPlayer {
 	// do not use display none as it breaks the iframe javascript
 	visibility: hidden;
 	position: absolute;
 	z-index: 1;
 	max-width: 200px;
+}
+
+.NewsTicker {
+	line-height: 1;
+	bottom: -0.7rem;
+	width: 100%;
+	font-size: 3rem;
+
+	ol {
+		list-style: none;
+	}
+
+	li {
+		display: inline;
+	}
 }
 
 .RemoteControl {
@@ -127,19 +143,3 @@
 		}
 	}
 }
-
-.TrackList {
-	line-height: 1;
-	bottom: -0.7rem;
-	width: 100%;
-	font-size: 3rem;
-
-	ol {
-		list-style: none;
-	}
-
-	li {
-		display: inline;
-	}
-}
-
