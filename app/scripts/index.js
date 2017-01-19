@@ -54,14 +54,8 @@ $('.js-changeTrack').on('click', changeTrack)
 // START
 
 const start = function () {
-	// Mute the video.
-	ytPlayer.mute();
-
-	// TODO: Rewrite to wait for Soundcloud Widget API callback.
-	setTimeout(() => {
-		console.log('autoplaying first track')
-		$('.js-changeTrack').eq(0).trigger('click')
-	}, 1000)
+	console.log('autoplaying first track')
+	$('.js-changeTrack').eq(0).trigger('click')
 }
 
-start()
+scPlayer.bind(SC.Widget.Events.READY, start)

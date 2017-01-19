@@ -34,5 +34,6 @@ const onFinish = () => {
 
 widget.bind(SC.Widget.Events.PLAY, onPlay)
 widget.bind(SC.Widget.Events.FINISH, onFinish)
+widget.bind(SC.Widget.Events.READY, onReady)
 
 export default widget
