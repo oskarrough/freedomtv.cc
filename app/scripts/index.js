@@ -1,56 +1,31 @@
 /* eslint no-unused-vars:0 */
 
-import $ from 'jquery';
-import ytPlayer from './youtube';
-import scPlayer from './soundcloud';
+import $ from 'jquery'
+import store from './store'
+import ytPlayer from './youtube'
+import scPlayer from './soundcloud'
 
-const videos = [
-	// 'eCIJZ_6Qcck',
-	// 'RHOy9XObpZU',
-	// '5vuuT5W9BWo',
-	// 'J9eCj2XUFSg',
-	// 'h0pWXCdRU5A',
-	// 'DHTyG8x5UPo'
-	'eCIJZ_6Qcck',
-	'RHOy9XObpZU',
-	'q8ZHi6whe58',
-	'qchPLaiKocI',
-	'aJbD00z68JI',
-	'TwyqfyR_qXg',
-	'X84muuaySVQ',
-	'bF_a6qMeWP8',
-	'HKaIMdX6K7g',
-	'MCt0DLsn3lM',
-	'BbIPRG2P16Q',
-	'Yi1m_UVpAHw',
-	'2VW1M5L2oV0',
-	'ozoTzkCeO-A'
-]
-
-const videoTheRhythm = 'DHTyG8x5UPo'
-
-const getRandomVideo = () => {
-	return videos[Math.floor(Math.random() * videos.length)]
-}
-
-ytPlayer.mute();
-// ytPlayer.loadVideoById(videos[0])
-
-const remoteControl = document.querySelector('.RemoteControl')
+// ACTIONS
 
 const changeTrack = function (event) {
-	let $el = $(event.currentTarget)
-	let index = Number($el.text().trim() - 1)
-	console.log(index)
+	const $el = $(event.currentTarget)
+
+	// Use the string number text to decide which track to play.
+	const index = Number($el.text().trim() - 1)
+
 	// Change video
 	if (index === 4) {
-		ytPlayer.loadVideoById(videoTheRhythm)
+		// the rhythm video
+		ytPlayer.loadVideoById('DHTyG8x5UPo')
 	} else {
-		ytPlayer.loadVideoById(getRandomVideo())
+		ytPlayer.loadVideoById(store.findRandomVideo())
 	}
+
 	// Change track.
 	scPlayer.skip(index)
 }
+
+// EVENT HANDLERS
 
 $('.js-volUp').on('click', () => {
 	scPlayer.getVolume(vol => {
@@ -71,25 +46,16 @@ $('.js-volDown').on('click', () => {
 $('.js-toggleSound').on('click', () => {
 	scPlayer.toggle()
 })
-
 $('.js-next').on('click', () => {
 	scPlayer.next()
 })
-
 $('.js-changeTrack').on('click', changeTrack)
 
-const play = function () {
-	scPlayer.toggle()
-	remoteControl.classList.add('is-playing')
-}
+// START
 
-const pause = function () {
-	scPlayer.toggle()
-	remoteControl.classList.remove('is-playing')
-	// ytPlayer.pauseVideo()
-}
-
-setTimeout(() => {
+const start = function () {
 	console.log('autoplaying first track')
 	$('.js-changeTrack').eq(0).trigger('click')
-}, 800)
+}
+
+scPlayer.bind(SC.Widget.Events.READY, start)

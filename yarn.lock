@@ -9361,9 +9361,9 @@ yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
-youtube-player@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-4.1.0.tgz#f53c69b36eb66d89d2b4b2f71e9ad3a58a54dd62"
+youtube-player@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-4.1.1.tgz#029990a9051728946134f743acb392d39db2fa86"
   dependencies:
     load-script "^1.0.0"
     lodash "^4.3.0"

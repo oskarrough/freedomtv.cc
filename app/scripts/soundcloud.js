@@ -1,18 +1,22 @@
+/* global SC */
 import $ from 'jquery'
 
 // This assumes you've loaded the Soundcloud API, which exposes a global `SC` var.
-let remoteControl = document.querySelector('.RemoteControl')
-let remoteControlList = document.querySelector('.RemoteControl-list')
-let iframeElement = document.querySelector('.Player iframe')
-let widget = SC.Widget(iframeElement)
+// https://developers.soundcloud.com/docs/api/html5-widget
+const remoteControlList = document.querySelector('.RemoteControl-list')
+const iframeElement = document.querySelector('.Player iframe')
+const widget = new SC.Widget(iframeElement)
+
+const onReady = () => {
+	console.log('ready')
+}
 
 const onPlay = () => {
 	console.log('play')
 
 	// Mark current button as active.
 	widget.getCurrentSoundIndex(index => {
-		let li = $('.js-changeTrack').eq(index).parent('li')
-
+		const li = $('.js-changeTrack').eq(index).parent('li')
 		$(remoteControlList).find('li').not(li).removeClass('is-active')
 		li.addClass('is-active')
 	})
@@ -30,6 +34,6 @@ const onFinish = () => {
 
 widget.bind(SC.Widget.Events.PLAY, onPlay)
 widget.bind(SC.Widget.Events.FINISH, onFinish)
+widget.bind(SC.Widget.Events.READY, onReady)
 
 export default widget
-

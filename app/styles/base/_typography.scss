@@ -4,12 +4,14 @@
 
 $global-font-size: 16px;
 $global-line-height: 1.4;
-$global-font-family: "vcr_osd_monoregular", monospace, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+// $sans-serif: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+$global-font-family: "vcr_osd_monoregular", monospace;
 
 @font-face {
-	font-family: 'vcr_osd_monoregular';
-	src: url('../fonts/vcr_osd_mono_1.001-webfont.woff2') format('woff2'),
-	url('../fonts/vcr_osd_mono_1.001-webfont.woff') format('woff');
+	font-family: "vcr_osd_monoregular";
+	src:
+		url("../fonts/vcr_osd_mono_1.001-webfont.woff2") format("woff2"),
+		url("../fonts/vcr_osd_mono_1.001-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }
