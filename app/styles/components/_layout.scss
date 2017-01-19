@@ -18,6 +18,9 @@
 	pointer-events: none;
 }
 
+.YoutubePlayer-loader.is-hidden {
+	display: none;
+}
 
 .SoundCloudPlayer {
 	// do not use display none as it breaks the iframe javascript

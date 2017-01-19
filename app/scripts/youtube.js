@@ -28,7 +28,17 @@ player.on('stateChange', (event) => {
 		// Loop the video.
 		player.seekTo(0)
 	}
+	if (state === 'buffering') {
+		showLoader()
+	}
+	if (state === 'playing') {
+		hideLoader()
+	}
 })
+
+const loader = document.querySelector('.YoutubePlayer-loader')
+const hideLoader = () => loader.classList.add('is-hidden')
+const showLoader = () => loader.classList.remove('is-hidden')
 
 // Mute the video.
 player.mute()
