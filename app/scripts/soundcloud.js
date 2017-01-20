@@ -21,9 +21,10 @@ const onPlay = () => {
 		li.addClass('is-active')
 	})
 
-	// widget.getCurrentSound(sound => {
-	// 	console.log(sound.title)
-	// })
+	widget.getCurrentSound(sound => {
+		console.log(sound.title)
+		$('.Alert').text(sound.title)
+	})
 	// remoteControl.classList.add('is-playing')
 }
 
