@@ -2,28 +2,56 @@
 /* eslint no-unused-vars:0 */
 
 import $ from 'jquery'
-import store from './store'
+import db from './db'
 import ytPlayer from './youtube'
 import scPlayer from './soundcloud'
 
+// MODEL
+
+const random = (arr) => {
+	return arr[Math.floor(Math.random() * arr.length)]
+}
+
+// https://surma.github.io/underdash/#flatten
+function flatten(arr) {
+	return Array.prototype.concat.apply([], arr);
+}
+
+const findVideos = () => flatten(db.map(track => track.videos))
+
+const findVideo = (trackIndex = 0) => {
+	console.log(trackIndex);
+	let videos = db[trackIndex].videos
+	return random(videos)
+}
+
+const getCurrentTrackIndex = () => {
+	const $el = $('.RemoteControl-list .is-active')
+	const index = Number($el.text().trim() - 1)
+	console.log(index);
+	return index
+}
+
 // ACTIONS
 
-const changeTrack = function (event) {
-	const $el = $(event.currentTarget)
-
+const changeVideo = function (index) {
 	// Use the string number text to decide which track to play.
-	const index = Number($el.text().trim() - 1)
+	// let index = getCurrentTrackIndex()
+	let video
 
-	// Change video
-	if (index === 4) {
-		// the rhythm video
-		ytPlayer.loadVideoById('DHTyG8x5UPo')
+	console.log(index);
+
+	if (!index || index < 0) {
+		video = findVideo()
 	} else {
-		ytPlayer.loadVideoById(store.findRandomVideo())
+		video = findVideo(index)
 	}
 
-	// Change track.
-	scPlayer.skip(index)
+	return ytPlayer.loadVideoById(video)
+}
+
+const changeTrack = function (index) {
+	return scPlayer.skip(index)
 }
 
 const toggleVideo = () => {
@@ -93,15 +121,14 @@ $('.js-powerButton').on('click', () => {
 				// setTimeout(scPlayer.toggle, 1000)
 			})
 		} else {
-			ytPlayer.loadVideoById(store.findRandomVideo()).then(() => {
-				scPlayer.play()
-			})
+			scPlayer.play()
+			scPlayer.getCurrentSoundIndex(index => changeVideo(index))
 		}
 	})
 })
 $('.js-prev').on('click', () => {
 	scPlayer.prev()
-	ytPlayer.loadVideoById(store.findRandomVideo())
+	scPlayer.getCurrentSoundIndex(index => changeVideo(index))
 })
 $('.js-toggleSound').on('click', () => {
 	// Can not use scPlayer.toggle() because it resets when a new track plays
@@ -116,15 +143,25 @@ $('.js-toggleSound').on('click', () => {
 })
 $('.js-next').on('click', () => {
 	scPlayer.next()
-	ytPlayer.loadVideoById(store.findRandomVideo())
+	scPlayer.getCurrentSoundIndex(index => changeVideo(index))
 })
-$('.js-changeTrack').on('click', changeTrack)
+$('.js-changeTrack').on('click', event => {
+	// Use the string number text to decide what to play.
+	const $el = $(event.currentTarget)
+	const index = Number($el.text().trim() - 1)
+	console.log($el, `dom index: ${index}`);
+
+	changeVideo(index)
+	scPlayer.skip(index)
+})
 
 // START
 
 const start = function () {
-	// console.log('autoplaying first track')
-	$('.js-changeTrack').eq(0).trigger('click')
+	// scPlayer.setVolume(0)
+	console.log('autoplaying first track')
+	changeVideo(0)
+	changeTrack(0)
 }
 
 scPlayer.bind(SC.Widget.Events.READY, start)
