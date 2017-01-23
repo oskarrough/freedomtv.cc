@@ -24,9 +24,10 @@ export default [
 		"videos": [
 			"LRph0v9iopY",
 			"mEQqSCVhN8w",
-			"x42ErAIEpZ8",
-			"J9eCj2XUFSgd",
-			"Yi1m_UVpAHwd"]
+			"x42ErAIEpZ8"
+			// "J9eCj2XUFSgd",
+			// "Yi1m_UVpAHwd"
+		]
 	}, {
 		"title": "4. Red Runner (old music video ",
 		"videos": [
@@ -43,7 +44,7 @@ export default [
 	}, {
 		"title": "6. Rosie (computer)",
 		"videos": [
-			"bF_a6qMeWP8d",
+			// "bF_a6qMeWP8d",
 			"X84muuaySVQ",
 			"aJbD00z68JI"]
 	}, {
