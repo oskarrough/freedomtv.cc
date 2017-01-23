@@ -24,7 +24,7 @@ const findVideo = (trackIndex = 0) => {
 	let video
 	console.log(`findVideo(${trackIndex})`)
 	video = pickRandom(trackVideos)
-	while (video === currentVideo) {
+	while (video === currentVideo && trackVideos.length > 1) {
 		console.log('same, picking new')
 		video = pickRandom(trackVideos)
 	}
