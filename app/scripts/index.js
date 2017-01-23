@@ -7,9 +7,7 @@ import ytPlayer from './youtube'
 import scPlayer from './soundcloud'
 import draggable from './draggable'
 
-// MODEL
-
-const random = (arr) => {
+const pickRandom = arr => {
 	return arr[Math.floor(Math.random() * arr.length)]
 }
 
@@ -20,10 +18,19 @@ function flatten(arr) {
 
 const findVideos = () => flatten(db.map(track => track.videos))
 
+let currentVideo
 const findVideo = (trackIndex = 0) => {
-	console.log(trackIndex);
-	let videos = db[trackIndex].videos
-	return random(videos)
+	const trackVideos = db[trackIndex].videos
+	let video
+	console.log(`findVideo(${trackIndex})`)
+	video = pickRandom(trackVideos)
+	while (video === currentVideo) {
+		console.log('same, picking new')
+		video = pickRandom(trackVideos)
+	}
+	console.log('found video', video)
+	currentVideo = video
+	return video
 }
 
 const getCurrentTrackIndex = () => {
