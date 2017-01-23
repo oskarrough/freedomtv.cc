@@ -58,6 +58,11 @@ const changeVideo = function (index) {
 	return ytPlayer.loadVideoById(video)
 }
 
+const nextVideo = () => {
+	const index = getCurrentTrackIndex()
+	return changeVideo(index)
+}
+
 const changeTrack = function (index) {
 	return scPlayer.skip(index)
 }
@@ -152,6 +157,13 @@ $('.js-changeTrack').on('click', event => {
 
 	changeVideo(index)
 	scPlayer.skip(index)
+
+ytPlayer.on('stateChange', event => {
+	const ended = event.data === 0
+	if (ended) {
+		console.log('video ended')
+		nextVideo()
+	}
 })
 
 // START
@@ -159,8 +171,8 @@ $('.js-changeTrack').on('click', event => {
 const start = function () {
 	// scPlayer.setVolume(0)
 	console.log('autoplaying first track')
-	changeVideo(0)
 	changeTrack(0)
+	changeVideo(0).then(ytPlayer.playVideo)
 }
 
 scPlayer.bind(SC.Widget.Events.READY, start)
