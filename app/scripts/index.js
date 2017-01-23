@@ -13,7 +13,7 @@ const pickRandom = arr => {
 
 // https://surma.github.io/underdash/#flatten
 function flatten(arr) {
-	return Array.prototype.concat.apply([], arr);
+	return Array.prototype.concat.apply([], arr)
 }
 
 const findVideos = () => flatten(db.map(track => track.videos))
@@ -43,10 +43,7 @@ const getCurrentTrackIndex = () => {
 // ACTIONS
 
 const changeVideo = function (index) {
-	// Use the string number text to decide which track to play.
-	// let index = getCurrentTrackIndex()
 	let video
-
 	console.log(index);
 
 	if (!index || index < 0) {
@@ -54,6 +51,8 @@ const changeVideo = function (index) {
 	} else {
 		video = findVideo(index)
 	}
+
+	console.log('Changing video to ' + video);
 
 	return ytPlayer.loadVideoById(video)
 }
@@ -145,18 +144,25 @@ $('.js-toggleSound').on('click', () => {
 		}
 	})
 })
+
 $('.js-next').on('click', () => {
 	scPlayer.next()
 	scPlayer.getCurrentSoundIndex(index => changeVideo(index))
 })
+
 $('.js-changeTrack').on('click', event => {
 	// Use the string number text to decide what to play.
 	const $el = $(event.currentTarget)
 	const index = Number($el.text().trim() - 1)
-	console.log($el, `dom index: ${index}`);
+	console.log($el, `dom index: ${index}`)
 
 	changeVideo(index)
-	scPlayer.skip(index)
+	scPlayer.getCurrentSoundIndex(soundIndex => {
+		if (index !== soundIndex) {
+			scPlayer.skip(index)
+		}
+	})
+})
 
 ytPlayer.on('stateChange', event => {
 	const ended = event.data === 0

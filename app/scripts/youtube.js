@@ -40,6 +40,10 @@ player.on('stateChange', event => {
 	}
 })
 
+player.on('error', event => {
+	console.warn(event, event.data)
+})
+
 // Mute the video.
 player.mute()
 
