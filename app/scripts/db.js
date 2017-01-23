@@ -2,7 +2,7 @@ export default [
 	{
 		"title": "1. Cooler (tv shop)",
 		"videos": [
-			"eCIJZ_6Qcckd",
+			// "eCIJZ_6Qcckd", //
 			"4OzBCwDWNqs",
 			"ROn7oR9T0YM",
 			"HKaIMdX6K7g",
@@ -14,7 +14,7 @@ export default [
 	}, {
 		"title": "2. Still in the Shell (aerobics)",
 		"videos": [
-			"5vuuT5W9BWod",
+			// "5vuuT5W9BWod",
 			"2VW1M5L2oV0",
 			"0iT04SCa5wQ",
 			"G875UoA1H3A"
