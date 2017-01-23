@@ -5,6 +5,7 @@ import $ from 'jquery'
 import db from './db'
 import ytPlayer from './youtube'
 import scPlayer from './soundcloud'
+import draggable from './draggable'
 
 // MODEL
 
