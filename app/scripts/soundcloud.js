@@ -23,7 +23,18 @@ const onPlay = () => {
 
 	widget.getCurrentSound(sound => {
 		console.log(sound.title)
-		$('.Alert').text(sound.title)
+		$('.Alert')
+			.stop()
+			.fadeOut(32)
+			.fadeIn(32)
+			.fadeOut(32)
+			.fadeIn(32)
+			.fadeOut(32)
+			.fadeIn(32)
+			.text(sound.title)
+			.fadeIn(200)
+			.delay(6000)
+			.fadeOut(1000)
 	})
 	// remoteControl.classList.add('is-playing')
 }

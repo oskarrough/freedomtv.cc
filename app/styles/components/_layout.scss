@@ -153,13 +153,22 @@
 	}
 }
 
-.VolumeStatus {
+.Notify {
 	display: none;
-	bottom: 5rem;
+	bottom: 6rem;
+	width: 100%;
+	color: #3bff00; // green
+	font-size: 4rem;
+	text-align: center;
+
+	img {
+		height: auto;
+	}
 }
 
 .Alert {
 	bottom: 4rem;
 	left: 0;
 	right: 0;
+	font-size: 2rem;
 }

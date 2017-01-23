@@ -55,23 +55,24 @@ const changeTrack = function (index) {
 	return scPlayer.skip(index)
 }
 
-const toggleVideo = () => {
-	ytPlayer.getPlayerState().then(state => {
-		// console.log(state);
-		if (state === 1) {
-			// console.log('pausing');
-			ytPlayer.pauseVideo()
-		} else {
-			// console.log('playing');
-			ytPlayer.playVideo()
-		}
-	})
+const showVolumeChange = vol => {
+	// Clamp between 0 and 1.
+	if (vol > 1) {
+		vol = 1
+	}
+	if (vol < 0) {
+		vol = 0
+	}
+	// Map to a 0-20 scale so it fits our images.
+	const roundedVolume = (Math.round(vol * 20) / 20) * 20
+	// Create DOM image.
+	const image = `<img src="images/volume/freedomTV_Site_Volume_${roundedVolume}.png" alt="">`
+	notify(image)
 }
 
 let volumeTimer;
-const showVolumeChange = vol => {
-	const $el = $('.VolumeStatus')
-	const $img = $el.find('img')
+const notify = html => {
+	const $el = $('.Notify')
 
 	const show = () => {
 		$el.show()
@@ -80,20 +81,9 @@ const showVolumeChange = vol => {
 		$el.hide()
 	}
 
-	// Clamp between 0 and 1
-	if (vol > 1) {
-		vol = 1
-	}
-	if (vol < 0) {
-		vol = 0
-	}
-
-	// Map to a 0-20 scale so it fits our images
-	let roundedVolume = (Math.round(vol * 20) / 20) * 20
-
 	// Show it, change image, hide again.
+	$el.html(html)
 	show()
-	$img[0].src = `images/volume/freedomTV_Site_Volume_${roundedVolume}.png`
 	window.clearTimeout(volumeTimer)
 	volumeTimer = setTimeout(hide, 5000)
 }
@@ -113,7 +103,6 @@ $('.js-volDown').on('click', () => {
 	})
 })
 $('.js-powerButton').on('click', () => {
-	// toggleVideo()
 	ytPlayer.getPlayerState().then(state => {
 		if (state === 1) {
 			ytPlayer.loadVideoById('6hKIHF5cULg').then(() => {
@@ -137,8 +126,10 @@ $('.js-toggleSound').on('click', () => {
 		// console.log(vol);
 		if (vol < 1) {
 			scPlayer.setVolume(100)
+			notify('unmute')
 		} else {
 			scPlayer.setVolume(0)
+			notify('mute')
 		}
 	})
 })
