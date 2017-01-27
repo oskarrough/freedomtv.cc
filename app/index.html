@@ -13,6 +13,16 @@
 	<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/282899748&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
 </div>
 
+<div class="Notify u-overlay">
+	<img class="" src="images/volume/freedomTV_Site_Volume_12.png" alt="">
+</div>
+
+<div class="Alert u-overlay"></div>
+
+<marquee class="NewsTicker u-overlay" scrollamount="20">
+	{{> track-list}}
+</marquee>
+
 <div class="RemoteControl" draggable="true">
 	<ul class="RemoteControl-list">
 		<li><button class="js-volUp">Up</button></li>
@@ -40,16 +50,6 @@
 		<a href="https://soundcloud.com/tartelet-records" target="_blank">Tartelet Records</a>
 	</footer>
 </div>
-
-<div class="Notify u-overlay">
-	<img class="" src="images/volume/freedomTV_Site_Volume_12.png" alt="">
-</div>
-
-<marquee class="Alert u-overlay" direction="right" scrollamount="15"></marquee>
-
-<marquee class="NewsTicker u-overlay" scrollamount="20">
-	{{> track-list}}
-</marquee>
 
 {{/content}}
 {{/extend}}

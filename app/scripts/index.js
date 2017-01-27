@@ -82,7 +82,7 @@ const showVolumeChange = vol => {
 }
 
 let volumeTimer;
-const notify = html => {
+const notify = (html, isSticky) => {
 	const $el = $('.Notify')
 
 	const show = () => {
@@ -96,7 +96,9 @@ const notify = html => {
 	$el.html(html)
 	show()
 	window.clearTimeout(volumeTimer)
-	volumeTimer = setTimeout(hide, 5000)
+	if (!isSticky) {
+		volumeTimer = setTimeout(hide, 4000)
+	}
 }
 
 // EVENT HANDLERS
@@ -140,7 +142,7 @@ $('.js-toggleSound').on('click', () => {
 			notify('unmute')
 		} else {
 			scPlayer.setVolume(0)
-			notify('mute')
+			notify('mute', true)
 		}
 	})
 })

@@ -28,11 +28,7 @@ const showLoader = () => loader.classList.remove('is-hidden')
 player.on('stateChange', event => {
 	const state = stateNames[event.data]
 	console.log('State: ' + state + ' (' + event.data + ').')
-	// if (state === 'ended') {
-	// 	// Loop the video.
-	// 	player.seekTo(0)
-	// }
-	if (state === 'buffering') {
+	if (state === 'buffering' || state === 'unstarted') {
 		showLoader()
 	}
 	if (state === 'playing') {
