@@ -1,0 +1,120 @@
+.RemoteControl {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	z-index: 3;
+	width: 250px;
+	height: 440px;
+	background-image: url("../images/remote/WayneSnow_Remote_0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	text-align: center;
+}
+
+// Switch icon depending on play-state
+.RemoteControl.is-playing {
+	.play {
+		display: none;
+	}
+
+	.pause {
+		display: initial;
+	}
+}
+
+.RemoteControl-list {
+	margin: 0;
+	padding-left: 0;
+	display: flex;
+	flex-flow: row wrap;
+	position: absolute;
+	top: 8.8rem;
+	top: 1.9rem;
+	left: 2rem;
+	right: 2rem;
+
+	li {
+		flex: 33%;
+		padding: 0.7rem 1rem;
+		line-height: 1;
+		margin-bottom: 0.7rem;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		// color: transparent;
+
+		&::before {
+			display: inline-block;
+			content: "";
+			width: 1.7rem;
+			height: 1.3rem;
+			background-color: #2e3438;
+			position: absolute;
+			z-index: -1;
+			left: 36%;
+			left: calc(50% - 0.8rem);
+		}
+
+		button {
+			width: 100%;
+			min-height: 1.3rem;
+		}
+	}
+
+	li.is-active {
+		color: white;
+
+		&::before {
+			// background-color: lighten(#511e55, 40%);
+			background-color: #b56d42;
+			filter: blur(2px);
+		}
+	}
+
+	li:nth-child(1),
+	li:nth-child(2),
+	li:nth-child(3),
+	li:nth-child(4),
+	li:nth-child(5),
+	li:nth-child(6) {
+		color: transparent;
+		text-shadow: none;
+
+		button {
+			text-indent: -999px;
+		}
+
+		&::before {
+			display: none;
+		}
+	}
+
+	li:last-child {
+		flex: 66%;
+
+		a {
+			// To lazy to hide the text so link is empty
+			// so it needs a size.
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.RemoteControl-footer {
+	position: absolute;
+	bottom: 2.3rem;
+	width: 100%;
+	font-size: 13px;
+
+	a {
+		color: $yellow;
+		color: rgba(black, 0.6);
+		text-shadow: none;
+	}
+}
