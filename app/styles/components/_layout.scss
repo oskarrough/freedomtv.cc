@@ -49,13 +49,17 @@
 	}
 }
 
+.Notify,
+.Alert {
+	text-align: center;
+	color: #3bff00; // green
+}
+
 .Notify {
 	display: none;
 	bottom: 6rem;
 	width: 100%;
-	color: #3bff00; // green
 	font-size: 4rem;
-	text-align: center;
 
 	img {
 		height: auto;
