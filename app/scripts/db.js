@@ -2,6 +2,7 @@ export default [
 	{
 		"title": "1. Cooler (tv shop)",
 		"videos": [
+			"eCIJZ_6Qcck",
 			// "eCIJZ_6Qcckd", //
 			"4OzBCwDWNqs",
 			"ROn7oR9T0YM",
@@ -65,14 +66,21 @@ export default [
 	}, {
 		"title": "9. Freedom R.i.P ",
 		"videos": [
-			"ci0qd-fDZmA"]
+			"ci0qd-fDZmA",
+			"p2_BpkEz92Y",
+			"EDEdvZi16MU",
+			"bMtuQJ9Ccj8",
+			"JeqgshFfUiU"
+		]
 	}, {
 		"title": "10. Nothing but the Best (Wheel of fortune)",
 		"videos": [
 			"b7SAi4oqs08",
 			"1lwj4ASfwvk",
-			"6ud7cbAVCrs",
-			"8167bby48R4",
-			"FE66UYs6QGY"]
+			"g_87i7FhkIs",
+			"qlDALjminQI",
+			"rbhXUlRx-OQ",
+			"ciRYXoW6DTw"
+		]
 	}
 ]
