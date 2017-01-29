@@ -51,15 +51,19 @@
 
 .Notify,
 .Alert {
-	text-align: center;
+	left: 1rem;
+	right: 1rem;
+	bottom: 4rem;
+	font-size: 3rem;
 	color: #3bff00; // green
 }
 
 .Notify {
 	display: none;
-	bottom: 6rem;
-	width: 100%;
-	font-size: 4rem;
+	top: 12rem;
+	right: 2rem;
+	bottom: initial;
+	text-align: right;
 
 	img {
 		height: auto;
@@ -67,9 +71,5 @@
 }
 
 .Alert {
-	bottom: 4rem;
-	left: 1rem;
-	right: 1rem;
-	font-size: 2rem;
 }
 
