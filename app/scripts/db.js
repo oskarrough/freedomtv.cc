@@ -70,7 +70,10 @@ export default [
 			"p2_BpkEz92Y",
 			"EDEdvZi16MU",
 			"bMtuQJ9Ccj8",
-			"JeqgshFfUiU"
+			"JeqgshFfUiU",
+			"28sOsQ4dioU",
+			"ZrrG-pZO6eQ",
+			"5R5qBBYqhtA"
 		]
 	}, {
 		"title": "10. Nothing but the Best (Wheel of fortune)",
