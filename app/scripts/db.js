@@ -15,7 +15,7 @@ export default [
 	}, {
 		"title": "2. Still in the Shell (aerobics)",
 		"videos": [
-			// "5vuuT5W9BWod",
+			"5vuuT5W9BWo",
 			"2VW1M5L2oV0",
 			"0iT04SCa5wQ",
 			"G875UoA1H3A"
@@ -32,6 +32,8 @@ export default [
 	}, {
 		"title": "4. Red Runner (old music video ",
 		"videos": [
+			"d-FB1_5pQNk",
+			"esNGvvL6U1Y",
 			"BbIPRG2P16Q",
 			"qchPLaiKocI"]
 	}, {
