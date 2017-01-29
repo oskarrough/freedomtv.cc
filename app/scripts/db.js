@@ -23,6 +23,8 @@ export default [
 	}, {
 		"title": "3. Drunk (tv commercial kids)",
 		"videos": [
+			"WUXfcXqQQ2c",
+			"xg8Bc-mod2k",
 			"LRph0v9iopY",
 			"mEQqSCVhN8w",
 			"x42ErAIEpZ8"
