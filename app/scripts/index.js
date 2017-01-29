@@ -22,13 +22,12 @@ let currentVideo
 const findVideo = (trackIndex = 0) => {
 	const trackVideos = db[trackIndex].videos
 	let video
-	console.log(`findVideo(${trackIndex})`)
+	// console.log(`findVideo(${trackIndex})`)
 	video = pickRandom(trackVideos)
 	while (video === currentVideo && trackVideos.length > 1) {
-		console.log('same, picking new')
 		video = pickRandom(trackVideos)
 	}
-	console.log('found video', video)
+	// console.log('found video', video)
 	currentVideo = video
 	return video
 }
@@ -36,7 +35,6 @@ const findVideo = (trackIndex = 0) => {
 const getCurrentTrackIndex = () => {
 	const $el = $('.RemoteControl-list .is-active')
 	const index = Number($el.text().trim() - 1)
-	console.log(index);
 	return index
 }
 
@@ -44,7 +42,6 @@ const getCurrentTrackIndex = () => {
 
 const changeVideo = function (index) {
 	let video
-	console.log(index);
 
 	if (!index || index < 0) {
 		video = findVideo()
@@ -115,13 +112,12 @@ $('.js-volDown').on('click', () => {
 		showVolumeChange(vol - 0.05)
 	})
 })
+
 $('.js-powerButton').on('click', () => {
 	ytPlayer.getPlayerState().then(state => {
 		if (state === 1) {
 			ytPlayer.loadVideoById('6hKIHF5cULg').then(() => {
 				scPlayer.toggle()
-				// because the video is 1 sec long
-				// setTimeout(scPlayer.toggle, 1000)
 			})
 		} else {
 			scPlayer.play()
@@ -129,20 +125,22 @@ $('.js-powerButton').on('click', () => {
 		}
 	})
 })
+
 $('.js-prev').on('click', () => {
 	scPlayer.prev()
 	scPlayer.getCurrentSoundIndex(index => changeVideo(index))
 })
+
 $('.js-toggleSound').on('click', () => {
-	// Can not use scPlayer.toggle() because it resets when a new track plays
+	// Can not use scPlayer.toggle()
+	// because it resets the volume as a new track plays.
 	scPlayer.getVolume(vol => {
-		// console.log(vol);
 		if (vol < 1) {
 			scPlayer.setVolume(100)
-			notify('unmute')
+			notify('unmuted')
 		} else {
 			scPlayer.setVolume(0)
-			notify('mute', true)
+			notify('muted', true)
 		}
 	})
 })

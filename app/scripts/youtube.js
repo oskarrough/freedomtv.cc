@@ -27,7 +27,7 @@ const showLoader = () => loader.classList.remove('is-hidden')
 
 player.on('stateChange', event => {
 	const state = stateNames[event.data]
-	console.log('State: ' + state + ' (' + event.data + ').')
+	// console.log('State: ' + state + ' (' + event.data + ').')
 	if (state === 'buffering' || state === 'unstarted') {
 		showLoader()
 	}
