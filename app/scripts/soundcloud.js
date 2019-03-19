@@ -8,16 +8,21 @@ const iframe = document.querySelector('.SoundCloudPlayer iframe')
 const widget = new SC.Widget(iframe)
 
 const onReady = () => {
-	console.log('ready')
+	console.log('sc ready')
 }
 
 const onPlay = () => {
-	console.log('play')
+	console.log('sc play')
 
 	// Mark current button as active.
 	widget.getCurrentSoundIndex(index => {
-		const li = $('.js-changeTrack').eq(index).parent('li')
-		$('.RemoteControl-list').find('li').not(li).removeClass('is-active')
+		const li = $('.js-changeTrack')
+			.eq(index)
+			.parent('li')
+		$('.RemoteControl-list')
+			.find('li')
+			.not(li)
+			.removeClass('is-active')
 		li.addClass('is-active')
 	})
 
@@ -60,7 +65,7 @@ const onPlay = () => {
 }
 
 const onFinish = () => {
-	console.log('finished')
+	console.log('sc finished')
 	// remoteControl.classList.remove('is-playing')
 }
 

@@ -1,10 +1,9 @@
 /* !
-	https://github.com/oskarrough/rough
+ 	https://github.com/oskarrough/rough
 */
 
 // Third party (imported from node_modules)
-@import "breakpoint-sass/stylesheets/breakpoint";
-@import "suitcss-base/index.css";
+@import "node_modules/breakpoint-sass/stylesheets/breakpoint";
 
 // Base
 @import "base/breakpoints";
@@ -24,4 +23,3 @@
 @import "components/logo";
 @import "components/layout";
 @import "components/remote-control";
-
