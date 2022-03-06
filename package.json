@@ -3,15 +3,11 @@
   "version": "3.2.1",
   "private": true,
   "source": "src/index.html",
-  "engines": {
-    "node": ">=5.0.0"
-  },
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
   },
   "dependencies": {
-    "jquery": "^3.6.0",
     "suitcss-base": "^5.0.0",
     "youtube-player": "^5.5.2"
   },

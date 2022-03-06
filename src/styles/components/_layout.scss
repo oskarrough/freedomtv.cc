@@ -16,6 +16,7 @@
 	// Don't let people interact with the video
 	// because it's a TV. Not a video.
 	pointer-events: none;
+	z-index: 2;
 }
 
 .YoutubePlayer-loader {

@@ -1,7 +1,6 @@
-/* global SC */
+/* global SC *
 /* eslint no-unused-vars:0 */
 
-import $ from 'jquery'
 import db from './db'
 import youtube from './youtube'
 import soundcloud from './soundcloud'
@@ -20,8 +19,8 @@ youtube.on('stateChange', event => {
 
 const utils = {
 	getCurrentTrackIndex() {
-		const $el = $('.RemoteControl-list .is-active')
-		const index = Number($el.text().trim() - 1)
+		const $el = document.querySelector('.RemoteControl-list .is-active')
+		const index = Number($el.innerText.trim() - 1)
 		return index
 	},
 	// https://surma.github.io/underdash/#flatten
@@ -82,16 +81,16 @@ const ui = {
 	},
 
 	notify(html, isSticky) {
-		const $el = $('.Notify')
+		const $el = document.querySelector('.Notify')
 		const show = () => {
-			$el.show()
+			$el.removeAttribute('hidden')
 		}
 		const hide = () => {
-			$el.hide()
+			$el.setAttribute('hidden')
 		}
 
 		// Show it, change image, hide again.
-		$el.html(html)
+		$el.innerHTML = html
 		show()
 		window.clearTimeout(volumeTimer)
 		if (!isSticky) {
@@ -171,7 +170,7 @@ const start = function() {
 	console.log('freedom tv is starting')
 	// console.log('autoplaying first track')
 	soundcloud.setVolume(0)
-	ui.changeTrack(0)
+	ui.changeTrack(2)
 	soundcloud.seekTo(200)
 	// $('.js-next').trigger('click')
 	soundcloud.setVolume(100)

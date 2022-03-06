@@ -1,6 +1,4 @@
-/* global SC */
-import $ from 'jquery'
-
+/* global $, SC */
 const iframe = document.querySelector('.SoundCloudPlayer iframe')
 
 // This assumes you've loaded the Soundcloud API, which exposes a global `SC` var.
