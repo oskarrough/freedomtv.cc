@@ -2,22 +2,22 @@
   "name": "freedom-tv",
   "version": "3.2.1",
   "private": true,
+  "source": "src/index.html",
   "engines": {
     "node": ">=5.0.0"
   },
   "scripts": {
-    "start": "parcel serve app/index.html",
-    "build": "parcel build app/index.html",
-    "deploy-preview": "surge dist https://secret-wayne.surge.sh"
-  },
-  "devDependencies": {
-    "node-sass": "^4.9.3",
-    "parcel-bundler": "^1.9.7"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "dependencies": {
-    "breakpoint-sass": "^2.7.0",
-    "jquery": "^3.0.0",
-    "suitcss-base": "^2.0.0",
-    "youtube-player": "^5.5.0"
+    "jquery": "^3.6.0",
+    "suitcss-base": "^5.0.0",
+    "youtube-player": "^5.5.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.3.2",
+    "parcel": "^2.3.2",
+    "process": "^0.11.10"
   }
 }

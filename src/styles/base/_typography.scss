@@ -23,19 +23,19 @@ $global-font-family: "vcr_osd_monoregular", monospace;
 }
 
 @mixin type-1 {
-	font-size: rem(32);
+	font-size: 2rem;
 }
 
 @mixin type-2 {
-	font-size: rem(24);
+	font-size: 1.5rem;
 }
 
 @mixin type-3 {
-	font-size: rem($global-font-size);
+	font-size: 1rem;
 	font-weight: 600;
 }
 
 @mixin type-4 {
-	font-size: rem(14);
+	font-size: 0.875rem;
 	font-weight: 600;
 }

@@ -2,24 +2,21 @@
  	https://github.com/oskarrough/rough
 */
 
-// Third party (imported from node_modules)
-@import "node_modules/breakpoint-sass/stylesheets/breakpoint";
-
-// Base
+/* // Base */
 @import "base/breakpoints";
 @import "base/config";
 @import "base/colors";
-@import "base/helpers";
+// @import "base/helpers";
 @import "base/timing-functions";
 @import "base/typography";
 
-// Utilities
-// @import "utilities/clearfix";
-// @import "utilities/negative-text";
+/* // Utilities */
+/* // @import "utilities/clearfix"; */
+/* // @import "utilities/negative-text"; */
 
-// Components
+/* // Components */
 @import "components/global";
-// @import "components/icons";
+/* // @import "components/icons"; */
 @import "components/logo";
 @import "components/layout";
 @import "components/remote-control";
