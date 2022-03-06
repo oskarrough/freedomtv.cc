@@ -1,7 +1,7 @@
-import YoutubePlayer from 'youtube-player'
+import YouTubePlayer from 'youtube-player'
 
 // Create our player.
-const player = new YoutubePlayer('YoutubePlayer', {
+const player = new YouTubePlayer('YoutubePlayer', {
 	// videoId: '6hKIHF5cULg',
 	playerVars: {
 		modestbranding: 1,

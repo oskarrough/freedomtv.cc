@@ -6,3 +6,5 @@ bower_components
 *.sublime-workspace
 *.DS_Store
 npm-debug.log
+.cache
+.parcel-cache/

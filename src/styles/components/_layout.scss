@@ -16,10 +16,13 @@
 	// Don't let people interact with the video
 	// because it's a TV. Not a video.
 	pointer-events: none;
+	z-index: 2;
 }
 
 .YoutubePlayer-loader {
 	z-index: 2;
+	// width: 50%;
+	opacity: 0.5;
 }
 
 .YoutubePlayer-loader.is-hidden {
@@ -28,10 +31,11 @@
 
 .SoundCloudPlayer {
 	// do not use display none as it breaks the iframe javascript
-	visibility: hidden;
+	// visibility: hidden;
 	position: absolute;
 	z-index: 1;
-	max-width: 200px;
+	right: 0;
+	// max-width: 200px;
 }
 
 .NewsTicker {
